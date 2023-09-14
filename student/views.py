@@ -7,10 +7,11 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.conf import settings
 from datetime import date, timedelta
 from . import models as QMODEL
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+
 # from django import forms
 # from teacher import models as TMODEL
 
@@ -187,3 +188,10 @@ def Login(request):
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
 	return render(request=request, template_name="student/studentlogin.html", context={"login_form":forms})
+
+
+
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.") 
+	return redirect("student:studentlogin")

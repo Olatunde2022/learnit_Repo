@@ -26,19 +26,9 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="container nav_container">
-            <a href="{% url 'Learnit_Index_page' %}"><h4>LEARNIT</h4></a>
-            <ul class="nav__menu">
-                <li><a href="{% url 'Learnit_Index_page' %}">Home</a></li>
-                <li><a href="{% url 'Learnit_About_page' %}">About</a></li>
-                <li><a href="{% url 'Learnit_Courses_page' %}">Courses</a></li>
-                <li><a href="{% url 'Learnit_Contact_page' %}">Contact</a></li>                
-            </ul>
-            <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
-            <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
-        </div>
-    </nav>
+    {% include "student/navbar.html" %}
+
+   
     <!-- NAV Ends -->
 
 
