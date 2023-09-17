@@ -1,4 +1,5 @@
 body{
+    background-image: url("static/image/bg.jpg");
     overflow: scroll;
 }
 

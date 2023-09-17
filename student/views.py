@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,reverse
 from . import forms,models
+from .forms import StudentForm
 from django.db.models import Sum
 from django.contrib.auth.models import Group
 from django.http import HttpResponseRedirect
@@ -10,6 +11,7 @@ from . import models as QMODEL
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
+# from django.contrib.auth.forms import UserCreationForm 
 from django.contrib import messages
 
 # from django import forms
@@ -25,6 +27,7 @@ def studentclick_view(request):
 def student_signup_view(request):
     userForm=forms.StudentUserForm()
     studentForm=forms.StudentForm()
+    # studentForm=UserCreationForm ()
     mydict={'userForm':userForm,'studentForm':studentForm}
     if request.method=='POST':
         userForm=forms.StudentUserForm(request.POST)
@@ -53,6 +56,7 @@ def student_dashboard_view(request):
     'total_course':QMODEL.Course.objects.all().count(),
     'total_question':QMODEL.Question.objects.all().count(),
     }
+    
     return render(request,'student/student_dashboard.html')
 
 @login_required(login_url='studentlogin')
