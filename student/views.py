@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,reverse
 from . import forms,models
+from .models import Student
 from .forms import StudentForm
 from django.db.models import Sum
 from django.contrib.auth.models import Group
@@ -32,6 +33,12 @@ def student_signup_view(request):
     if request.method=='POST':
         userForm=forms.StudentUserForm(request.POST)
         studentForm=forms.StudentForm(request.POST,request.FILES)
+        # if userForm and studentForm != None:
+        #     messages.success(request, "You've successfully signup with us")
+        #     return redirect(reverse('studentlogin'))
+        # else:
+        #     messages.error(request,'There is empty field, kindly check')
+        #     return render(request,'student/studentsignup.html',context=mydict)
         if userForm.is_valid() and studentForm.is_valid():
             user=userForm.save()
             user.set_password(user.password)
@@ -50,14 +57,28 @@ def is_student(user):
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
 
-def student_dashboard_view(request):
-    dict={
+# def student_dashboard_view(request,id):
+#     # dict={
     
-    'total_course':QMODEL.Course.objects.all().count(),
-    'total_question':QMODEL.Question.objects.all().count(),
-    }
+#     # 'total_course':QMODEL.Course.objects.all().count(),
+#     # 'total_question':QMODEL.Question.objects.all().count(),
+#     # }
+#     each_student = Student.objects.get(id=id)
+#     context= {"student":each_student}
     
-    return render(request,'student/student_dashboard.html')
+#     return render(request,'student/for_dashboard.html', context)
+def dashboard(request):
+    each_student = Student.objects.all()
+    context= {"students":each_student, }
+    
+    return render(request,'student/for_dashboard.html', context)
+
+def eachstudent(request,id):
+    fetch_student = Student.objects.get(id=id)
+    context= {"students":fetch_student}
+    
+    return render(request,'student/for_dashboard.html', context)
+    
 
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)

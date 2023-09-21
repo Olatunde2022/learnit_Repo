@@ -24,27 +24,14 @@
 </head>
 <body>
     {% include "student/navbar.html" %}
-    {% comment %} <nav>
-        <div class="container nav_container">
-            <a href="{% url 'Learnit_Index_page' %}"><h4>LEARNIT</h4></a>
-            <ul class="nav__menu">
-                <li><a href="{% url 'Learnit_Index_page' %}">Home</a></li>
-                <li><a href="{% url 'Learnit_About_page' %}">About</a></li>
-                <li><a href="{% url 'Learnit_Courses_page' %}">Courses</a></li>
-                <li><a href="{% url 'Learnit_Contact_page' %}">Contact</a></li>                
-                <li><a href="{% url 'student:studentsignup' %}">Login/Register</a></li>                
-            </ul>
-            <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
-            <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
-        </div>
-    </nav> {% endcomment %}
-    <!-- NAV Ends -->
+  
 <header>
     <div class="container header__container">
         <div class="header__left">
             <h1>Grow your skills to advance your career path</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus molestiae aut velit quia possimus rerum blanditiis quidem ducimus quas fuga!</p>
-            <a href="{% url 'Learnit_Courses_page' %} " class="btn btn-primary">Get Started</a>
+            <p>Learn tech skills online and start a new career. We offer a variety of courses, from beginner to advanced.
+            Our courses are taught by experienced professionals, Enroll today and start your journey to a better future</p>
+            <a href="{% url 'student:studentsignup' %} " class="btn btn-primary">Get Started</a>
 
         </div>
         <div class="header__right">
@@ -61,39 +48,39 @@
     <div class="container categories__container">
         <div class="categories__left">
             <h1>Categories</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit et dicta officia ullam repellat? Nam laudantium dolores ea doloremque impedit sint, mollitia quidem nisi ad reiciendis, nobis quaerat, similique placeat.</p>
+            <p>Enhance your skills and stay relevant in the ever-evolving tech world with our comprehensive range of learning categories. Upskill with our diverse range of courses and stay ahead of the curve in the age of technology.</p>
             <a href="" class="btn">Learn More</a>
         </div>
         <div class="categories__right">
             <article class="category">
                 <span class="category__icon"><i class="uil uil-bitcoin-circle"></i></span>
                 <h5>Blockchain</h5>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, facere.</p>
+                <p><a href="https://youtube.com/@ojetundekabir2046?si=jBKoYVO3iw9nyCNS" target="_blank">You can become a Blockchain developer in 4 months, join our channel on youtube</a></p>
             </article>        
             <article class="category">
                 <span class="category__icon"><i class="uil uil-volleyball"></i></span>
                 <h5>Sport</h5>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, facere.</p>
+                <p>Stay up-to-date on all the latest news and analysis with our award-winning sports blog!</p>
             </article>        
             <article class="category">
                 <span class="category__icon"><i class="uil uil-desktop"></i></span>
                 <h5>Entertainment</h5>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, facere.</p>
-            </article>        
+                <p><a href="https://youtube.com/@ojetundekabir2046?si=jBKoYVO3iw9nyCNS" target="_blank">Enjoy every seconds of your free periods to chill, visit our channel today!<br>BYE to boredoms</a></p>
+                </article>        
             <article class="category">
                 <span class="category__icon"><i class="uil uil-bitcoin-circle"></i></span>
                 <h5>Business</h5>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, facere.</p>
+                <p>Subscribe today and start learning best innovative skills from our channel!</p>
             </article>        
             <article class="category">
                 <span class="category__icon"><i class="uil uil-presentation-plus"></i></span>
                 <h5>Study</h5>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, facere.</p>
-            </article>        
+                <a href="{% url 'student:studentsignup' %} "><p>Study online at our website: Get the education you need, at your own pace. Learnit!</p></a>
+                </article>        
             <article class="category">
                 <span class="category__icon"><i class="uil uil-monitor"></i></span>
                 <h5>News</h5>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, facere.</p>
+                <p>If you're looking for the latest news headlines, detailed analysis on any topic</p>
             </article>        
         </div>
     </div>
@@ -266,7 +253,7 @@
             <h5>Diana Briant</h5>
             <small>Student</small>
             <div class="testimonial__body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed atque rem perferendis, doloribus, similique accusamus corporis id reprehenderit facilis, cum molestias consequuntur ipsa nulla! Adipisci veniam molestiae animi illo quasi!</p>
+                <p>I've taken several courses on the learning website, and I've been impressed with the quality of the instruction and the materials. I've learned a lot, and I'm confident that the skills I've learnt worth learning</p>
             </div>
         </div>
     </article>
@@ -278,7 +265,7 @@
             <h5>Abraham Quist</h5>
             <small>Developer</small>
             <div class="testimonial__body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed atque rem perferendis, doloribus, similique accusamus corporis id reprehenderit facilis, cum molestias consequuntur ipsa nulla! Adipisci veniam molestiae animi illo quasi!</p>
+                <p>I was able to learn new skills and advance my career thanks to the courses on your learning website.  The instructors are experts in their field, and the courses are well-designed and informative.</p>
             </div>
         </div>
     </article>
@@ -289,8 +276,8 @@
 
 {% include "student/footer.html" %}
 
+<script src="{% static 'js/main.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="{% static 'js/main.js'%}"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
           slidesPerView: 1,

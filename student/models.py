@@ -6,6 +6,8 @@ class Student(models.Model):
     profile_pic= models.ImageField(upload_to='myInstitution-django/media/profile_pic',null=True,blank=True)
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20,null=False)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
    
     @property
     def get_name(self):

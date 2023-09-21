@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="{% static 'style/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'style/index.css' %}">
-    <link rel="stylesheet" href="{% static 'style/about.css' %}">
+    <link rel="stylesheet" href="{% static 'style/signup.css' %}">
     <link rel="stylesheet" href="{% static 'style/contact.css' %}">    
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
@@ -23,30 +23,8 @@
         body{
             background-image: url("/static/image/bg.jpg");
         }
-
-        form{         
-          margin-left:20%;
-          margin-top:-5%;
-                  
-        }
+        
        
-        .contact{
-          border-top-left-radius: 50px;
-          border-bottom-right-radius: 50px;
-          margin-left: 10%; 
-          width:80%;
-          background:#1f2641;
-          height: 600px;
-
-        }
-        .img{
-          width:50%;
-        }
-        .custome_div{
-          display:flex;
-          flex-direction:row;
-        }
-
     </style>
   </head>
   <body>
@@ -56,69 +34,70 @@
 
 <br><br><br>
 <section class="contact">
+  {% for message in messages %}
+    <p class="{{message.tags}}">{{message}} </p>
+    {% endfor %}
+
   
   <form method="POST" autocomplete="off" enctype="multipart/form-data">
-    <h3 style="color: red;">STUDENT SIGNUP</h3>
+    <h3 style="color: white;">STUDENT SIGNUP</h3>
       {% csrf_token %}
 
-      <div class="form-row mb-3 custome_div">
-        <div>  {{userForm.label}} <i class="uil uil-user"></i> </div>
-        <div class="form-group col-md-6">
+      <div class="form-row mb-3 mt-3 custome_div">
+        <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+        <div class="form-group col-md-6 input">
         {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
         </div>
       </div> 
 
       <div class="form-row mb-3 custome_div">
-        <div>  {{userForm.label}} <i class="uil uil-user"></i> </div>
-        <div class="form-group col-md-6  ">
+        <div class="icon px-3 py-1 rounded-start" >  {{userForm.label}} <i class="uil uil-user"></i> </div>
+        <div class="form-group col-md-6 input ">
           {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
         </div>
       </div>
       
   
         <div class="form-row mb-3 custome_div">
-          <div>  {{userForm.label}} <i class="uil uil-user"></i> </div>
-          <div class="form-group col-md-6 ">
+          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="form-group col-md-6 input">
             {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
           </div>
         </div> 
-          
-        <div class="form-row custome_div">
-          <div>  {{userForm.label}} <i class="uil uil-user"></i> </div>
-          <div class="form-group col-md-6  mb-3">                       
-            {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
-            
-        </div>        
-        </div>        
-  
+      
         <div class="form-row mb-3 custome_div">
-          <div>  {{userForm.label}} <i class="uil uil-user"></i> </div>
-          <div class="form-group col-md-6 ">
+          <div class="icon px-3 py-1 rounded-start"> {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="form-group col-md-6 input">
+            {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}            
+          </div>
+        </div> 
+        <div class="form-row mb-3 custome_div">
+          <div class="icon px-3 py-1 rounded-start"> {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="form-group col-md-6 input">
             {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
           </div>
         </div> 
 
-        <div class="form-row  mb-3">  
-        <div class="form-group col-md-6">       
+        <div class="form-row  mb-3 custome_div"> 
+          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="form-group col-md-6 input">       
             {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
           </div>
         </div>
   
-        <div class="form-row  mb-3">
-          <div class="form-group col-md-6">
-            <span><i class="uil uil-image"></i>
+        <div class="form-row  mb-3 custome_div">
+          <div class="icon px-3 py-1 rounded-start">  {{userForm.label}} <i class="uil uil-user"></i> </div>
+          <div class="form-group col-md-6 input pic">
             {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
-            </span>
-        </div>          
+          </div>          
         </div>
         
-        <div class="form-row  mb-3">
-          <button type="submit" class="btn btn-primary py-2 ">Sign Up</button>
+        <div class="form-row  mb-3 d-flex px-3 last_row">
+          <button type="submit" class="btn btn-primary py-2 ">Sign Up</button>              
+          <a href="{% url 'student:studentlogin' %}" class="btn ms-3"style="width:130px;">Login</a>
       </div> 
   
-      <p style="margin-left:5%">
-        Do you have an account with us? <a href="{% url 'student:studentlogin' %}">Login</a>
-      </p>
+      
      
     </form>
   

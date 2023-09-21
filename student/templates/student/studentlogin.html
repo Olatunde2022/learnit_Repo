@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="{% static 'style/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'style/login.css'%}">
     <link rel="stylesheet" href="{% static 'style/index.css'%}">
     <link rel="stylesheet" href="{% static 'style/about.css'%}">
     <link rel="stylesheet" href="{% static 'style/contact.css'%}">   
@@ -17,78 +18,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   
     <style media="screen">
-        a{
+a{
             text-decoration:none;
-          }
-            body{
-                
-            }
-      body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-image: url("/static/image/bg.jpg");
+    }
+           
+body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-image: url("/static/image/bg.jpg");
     
-}
-
-.box {
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #191919;
-
-    text-align: center;
-    transition: 0.25s;
-    margin-top: 100px
-}
-
-.box input[type="text"],
-.box input[type="password"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #3498db;
-    padding: 10px 10px;
-    width: 250px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s
-}
-
-.box h1 {
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500
-}
-
-.box input[type="text"]:focus,
-.box input[type="password"]:focus {
-    width: 300px;
-    border-color: #2ecc71
-}
-
-.box input[type="submit"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer
-}
-
-.box input[type="submit"]:hover {
-    background: #2ecc71
 }
 
 
@@ -98,48 +37,50 @@
 
   <body>
     {% include "student/navbar.html" %}
-    <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <form class="box" method="post">
-                    {% csrf_token %}
-                    <h1>Student Login</h1>
-                    <p class="text-muted"> Please enter your login and password!</p>
-                    <div class="mb-3">
-                        
-                        <input type="text" class="form-control" id="" aria-describedby="emailHelp" name="username">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                      </div>
 
-                      <div class="mb-3">                        
-                        <input type="password" class="form-control" id="" name="password">
-                      </div>
-                      
-                      <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                      </div>                    
-{% comment %} 
-                     {% render_field form.username class="form-control" placeholder="Username" %}
-                     {% render_field form.password class="form-control" placeholder="Password" %} {% endcomment %}
-
-                     <input type="submit" name="" value="Login">
-
-                </form>
-            </div>
-        </div>
+    <div class="messages">
+     
+      {% for message in messages %}
+            <p class="{{message.tags}}">{{message}} </p>
+            {% endfor %}
     </div>
-</div>
+
+    <section class="login_section">   
+                  <form class="box" method="post">
+                      {% csrf_token %}
+                      <h1>Student Login</h1>
+                      <p class="text-muted"> Please enter your login and password!</p>
+                      <div class="mb-3">
+                          
+                          <input type="text" class="form-control" id="" placeholder="Username" name="username">
+                          </div>
+  
+                        <div class="mb-3">                        
+                          <input type="password" class="form-control" id="" placeholder="Password" name="password">
+                        </div>
+                        
+                        <div class="mb-3 form-check ">
+                          <input type="checkbox" class="form-check-input" id="checkme">
+                          <label  class="" for="checkme" style="text-align:left;">Remember me</label>
+                        </div>                    
+  {% comment %} 
+                       {% render_field form.username class="form-control" placeholder="Username" %}
+                       {% render_field form.password class="form-control" placeholder="Password" %} {% endcomment %}
+  
+                       <input type="submit" name="" value="Login">
+  
+                       <p>
+                           Don't have an account yet? <a href="{% url 'student:studentsignup' %}">Register</a>
+                         </p>
+                       <p>
+                           Forgot password? <a href="{% url 'student:changepassword' %}">Reset password</a>
+                         </p>
+                  </form>
+              
+    </section>
 <br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br>
-<p>
-    Don't have an account yet? <a href="{% url 'student:studentsignup' %}">Register</a>
-  </p>
-<p>
-    Forgot password? <a href="{% url 'student:changepassword' %}">Reset password</a>
-  </p>
   <br><br><br><br><br>
 <br><br><br><br><br>
 
