@@ -1,10 +1,18 @@
-// Change navbar style on scrow
 
+// Variables
+const faqs = document.querySelectorAll('.faq')
+const menu = document.querySelector('.nav__menu');
+const menuBtn = document.querySelector('#open-menu-btn');
+const closeBtn = document.querySelector('#close-menu-btn');
+
+
+// Change navbar style on scrow
 window.addEventListener('scroll', ()=>{
     document.querySelector('nav').classList.toggle('window-scroll', window.scrollY >50)
 })
-// Show/hide faq answer
-const faqs = document.querySelectorAll('.faq')
+
+// // Show/hide faq answer
+
 faqs.forEach(faq =>{
     faq.addEventListener('click',()=>{
         faq.classList.toggle('open');
@@ -17,6 +25,9 @@ faqs.forEach(faq =>{
         }
     })
 })
+
+
+
 document.addEventListener("DOMContentLoaded", function() { 
     // get the the span element
     const yrSpan = document.querySelector('.curr_year');
@@ -26,9 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     yrSpan.textContent = currentYr;
         });
 // To show/hide menu
-const menu = document.querySelector('.nav__menu');
-const menuBtn = document.querySelector('#open-menu-btn');
-const closeBtn = document.querySelector('#close-menu-btn');
+
 
 menuBtn.addEventListener('click', ()=>{
     menu.style.display = "flex";
