@@ -69,7 +69,7 @@ def is_student(user):
 #     return render(request,'student/for_dashboard.html', context)
 def dashboard(request):
     each_student = Student.objects.all()
-    context= {"students":each_student, }
+    context= {"students":each_student }
     
     return render(request,'student/for_dashboard.html', context)
 
