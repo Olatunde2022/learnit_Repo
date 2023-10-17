@@ -1,3 +1,7 @@
+
+
+
+
 *{
     margin: 0;
     padding: 0;
@@ -6,7 +10,13 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    font-family: sans-serif;
 }
+
+body {
+    background-image: url("/static/image/bg.jpg");
+}
+
 :root{
     --color-primary: #6c63ff;
     --color-success: #00bf8e;
@@ -50,8 +60,22 @@
     margin-top: 15%; 
   }
 
-  .messages{
-    margin-top: 15%; 
+  /* .my_messages{
+    margin-left: 20%;
+    margin-top: 70%; 
+    height: 10000px;
+    display: none;
+    color: #00bf8e;
+    text-align: right;
+    background-color: #e12810;
+  } */
+
+  
+.my_messages{
+    height: 50px;
+    color: blueviolet;
+    background: #e12810;
+    border: 1px solid red;
   }
 
 .login_section{
@@ -239,7 +263,7 @@
         left: 20%;
         top: 5%;
     }
-    .messages{
+    .my_messages{
         
         height: 20px;
     }        
@@ -275,4 +299,9 @@
 
 }
     
+
+
+
+
+
 

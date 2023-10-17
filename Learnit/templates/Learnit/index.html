@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Institute</title>    
     <link rel="stylesheet" href="{% static 'style/index.css'%}">
+    <link rel="stylesheet" href="{% static 'style/contact.css'%}">
    
 
 
@@ -20,7 +21,23 @@
 <style>
     body{
         background-image: url("/static/image/bg.jpg");
+        ontserrat, sans-serif;
+    line-height: 1.7;
+    color: var(--color-white);
     }
+    .new_review{
+        text-align:center;
+        margin-top:20px;  
+        border: 1px solid green;
+        padding:2% 0 2% 15%; 
+        margin-left:10%;
+        display:none;
+        transition: all 400ms ease;
+    }
+.dropdown:hover .new_review {        
+        display:block;        
+}
+    
 </style>
 </head>
 <body>
@@ -208,10 +225,11 @@
 </section>
 <!-- FAQS End here -->
 
-<section class="container testimonials__container mySwiper">
+<section class="container testimonials__container mySwiper"  style="overflow:hidden;">
     <h2>Students' Testimonials</h2>
 
-<div class="swiper-wrapper">
+<div class="swiper-wrapper" >
+    
     <article class="testimonial swiper-slide">
         <div class="avater">
             <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="testimonial image here">
@@ -224,6 +242,7 @@
             </div>
         </div>
     </article>
+
     <article class="testimonial swiper-slide">
         <div class="avater">
             <img src="https://randomuser.me/api/portraits/men/13.jpg" alt="testimonial image here">
@@ -236,6 +255,7 @@
             </div>
         </div>
     </article>
+
     <article class="testimonial swiper-slide">
         <div class="avater">
             <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="testimonial image here">
@@ -248,6 +268,7 @@
             </div>
         </div>
     </article>
+
     <article class="testimonial swiper-slide">
         <div class="avater">
             <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="testimonial image here">
@@ -260,6 +281,7 @@
             </div>
         </div>
     </article>
+
     <article class="testimonial swiper-slide">
         <div class="avater">
             <img src="https://randomuser.me/api/portraits/men/19.jpg" alt="testimonial image here">
@@ -273,7 +295,26 @@
         </div>
     </article>
 </div>
-<div class="swiper-pagination"></div>
+<div  class="dropdown"style="overflow:hidden;">
+    <div class ="new_review" style="">
+        <form method="POST" autocomplete="off" enctype="multipart/form-data" class="contact__form"> 
+            <h4 style="">Your review</h4>
+                <div class="form__name">
+                    <input type="text" name="Firstname" placeholder="Your name" required>
+    
+                    <input type="text" name="Nationality" placeholder="Nationality?" required>
+                   </div>           
+                <input type="email" name="Email Address"  placeholder="Your Email" required >
+                <textarea name="message"  rows="7" placeholder="Your review here" required></textarea>
+                <button type="submit" class="btn btn-primary" target="_blank" style="margin-left:20%;">Send Message</button>
+        </form>
+    </div>
+    <div class="swiper-pagination" > </div>
+</div>
+
+
+
+
 </section>
 
 

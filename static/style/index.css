@@ -7,6 +7,7 @@
     text-decoration: none;
     list-style: none;
 }
+
 :root{
     --color-primary: #6c63ff;
     --color-success: #00bf8e;
@@ -26,14 +27,6 @@
 
     --transition: all 400ms ease;
 }   
-body{
-    /* background-image: url("/static/image/bg.jpg"); */
-    overflow: scroll;
-    font-family:Montserrat, sans-serif;
-    line-height: 1.7;
-    color: var(--color-white);
-    background: var(--color-bg);
-}
 .container{
     width: var(--container-width-lg);
     margin: 0 auto;
@@ -101,6 +94,7 @@ nav{
     background: var(--color-primary);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
+
 .nav_container{
     height: 100%;
     display: flex;
@@ -123,6 +117,8 @@ nav button{
 .nav__menu a:hover{
     color: var(--color-bg2);
 }
+
+
 header{
     position: relative;
     top: 5rem;
@@ -138,7 +134,8 @@ header{
     height: 100%;
 }
 .header__left p{
-    margin: 1rem 0.24rem;    
+    margin: 1rem 0.24rem;  
+      
 }
 
 /* Categories */
@@ -264,6 +261,7 @@ font-size: 1.2rem;
     display: block;
 }
 /* FAQS Ends here */
+
 .testimonials__container{
     overflow-x: hidden;
     position: relative;

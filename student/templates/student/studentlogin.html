@@ -4,12 +4,13 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="{% static 'style/bootstrap.css'%}">
+    <title>student-login</title>
+
     <link rel="stylesheet" href="{% static 'style/login.css'%}">
     <link rel="stylesheet" href="{% static 'style/index.css'%}">
-    <link rel="stylesheet" href="{% static 'style/about.css'%}">
-    <link rel="stylesheet" href="{% static 'style/contact.css'%}">   
+    {% comment %} <link rel="stylesheet" href="{% static 'style/bootstrap.css'%}"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="{% static 'style/about.css'%}">
+    <link rel="stylesheet" href="{% static 'style/contact.css'%}">    {% endcomment %}
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
@@ -22,13 +23,12 @@ a{
             text-decoration:none;
     }
            
-body {
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-            background-image: url("/static/image/bg.jpg");
-    
-}
+    body{
+      background-image: url("/static/image/bg.jpg");
+      ontserrat, sans-serif;
+  line-height: 1.7;
+  color: var(--color-white);
+  }
 
 
     </style>
@@ -38,18 +38,23 @@ body {
   <body>
     {% include "student/navbar.html" %}
 
-    <div class="messages">
+    
+    
      
-      {% for message in messages %}
+    <section class="my_messages">
+    
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, temporibus.
+    </section>
+     
+      {% comment %} {% for message in messages %}
             <p class="{{message.tags}}">{{message}} </p>
-            {% endfor %}
-    </div>
-
+            {% endfor %} {% endcomment %}
+    
     <section class="login_section">   
                   <form class="box" method="post">
                       {% csrf_token %}
                       <h1>Student Login</h1>
-                      <p class="text-muted"> Please enter your login and password!</p>
+                      <p class="text-muted"> Please enter your login details</p>
                       <div class="mb-3">
                           
                           <input type="text" class="form-control" id="" placeholder="Username" name="username">
